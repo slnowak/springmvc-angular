@@ -34,7 +34,7 @@ public class TeamDaoImpl implements TeamDao {
         final Team realMadridCastilla = new Team(2, "Real Madrid Castilla", "Segunda Division",
                 Rating.WEAK, Lists.<Player>newArrayList());
 
-        final Team manchesterUnited = new Team(1, "Manchester United", "Barclays Pemier League",
+        final Team manchesterUnited = new Team(3, "Manchester United", "Barclays Pemier League",
                 Rating.GOOD, Lists.<Player>newArrayList());
 
         return ImmutableMap.of(
