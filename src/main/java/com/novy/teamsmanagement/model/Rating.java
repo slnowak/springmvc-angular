@@ -5,8 +5,21 @@ package com.novy.teamsmanagement.model;
  */
 public enum Rating {
 
-    WEAK,
-    AVERAGE,
-    GOOD,
-    OUTSTANDING
+    WEAK("Week"),
+    AVERAGE("Average"),
+    GOOD("Good"),
+    OUTSTANDING("Outstanding");
+
+    private final String representation;
+
+    private Rating(String representation) {
+        this.representation = representation;
+    }
+
+    @Override
+    public String toString() {
+        return representation;
+    }
+
+
 }

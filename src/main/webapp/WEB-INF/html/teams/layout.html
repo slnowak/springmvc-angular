@@ -1,10 +1,23 @@
 <div>
 
-    <p>Currently we're having {{teams.length}} teams in system.</p>
-    <p>All teams:</p>
+    <p>Currently there {{teams.length}} teams in system.</p>
+    <br />
+
+    <label>
+        <p>Filter by name: </p>
+        <input ng-model="filter.name"/>
+    </label>
+    <br/>
+    <label>
+        <p>Filter by division: </p>
+        <input ng-model="filter.division"/>
+    </label>
+
+    <br/> <br/>
+
     <ul>
-        <li ng-repeat="team in teams">
-            {{ team.name }} - {{ team.division }}
+        <li ng-repeat="team in teams | filter:filter | orderBy:team.name" >
+            {{ team.name }} - {{ team.division }} - {{ team.rating }}
         </li>
     </ul>
     {{blah}}
