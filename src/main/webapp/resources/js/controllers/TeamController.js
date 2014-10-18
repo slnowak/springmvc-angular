@@ -8,10 +8,8 @@ var teamController = function($scope, $http) {
 
         $http.get('teams/all.json').success(function(response) {
             $scope.teams = response;
-        }).error(function(response, code) {
-            alert('fail' + ' ' + code);
         })
-    }
+    };
 
     $scope.viewAllTeams();
 
