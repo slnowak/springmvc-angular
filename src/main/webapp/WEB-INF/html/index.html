@@ -5,20 +5,43 @@
     <title>Teams Management</title>
 </head>
 <body>
-    <div>
 
-        <ul>
-            <li><a href="#/teams">Team List</a></li>
-        </ul>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Teams Management</a>
+            </div>
 
-        <div ng-view></div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#/teams">Team List</a></li>
+                </ul>
+            </div>
 
-    </div>
+        </div>
+    </nav>
+
+    <div ng-view></div>
 
     <script src="resources/js/lib/angular/angular.min.js"></script>
     <script src="resources/js/lib/angular/angular-route.min.js"></script>
     <script src="resources/js/app.js"></script>
     <script src="resources/js/controllers/TeamController.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
 </body>
 </html>
