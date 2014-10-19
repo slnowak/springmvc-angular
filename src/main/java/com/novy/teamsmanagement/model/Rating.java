@@ -1,5 +1,7 @@
 package com.novy.teamsmanagement.model;
 
+import org.codehaus.jackson.annotate.JsonValue;
+
 /**
  * Created by novy on 18.10.14.
  */
@@ -17,6 +19,7 @@ public enum Rating {
     }
 
     @Override
+    @JsonValue
     public String toString() {
         return representation;
     }

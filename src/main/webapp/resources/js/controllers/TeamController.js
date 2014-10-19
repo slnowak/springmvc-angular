@@ -37,7 +37,11 @@ var teamController = function($scope, $http) {
     };
 
     $scope.selectForEdition = function(team) {
-        $scope.formTeam = team;
+        $scope.formTeam = {};
+        $scope.formTeam.id = team.id;
+        $scope.formTeam.name = team.name;
+        $scope.formTeam.division = team.division;
+        $scope.formTeam.rating = team.rating;
         setEditionMode(true);
     }
 
