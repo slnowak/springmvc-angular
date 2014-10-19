@@ -5,7 +5,7 @@ package com.novy.teamsmanagement.model;
  */
 public enum Rating {
 
-    WEAK("Week"),
+    WEAK("Weak"),
     AVERAGE("Average"),
     GOOD("Good"),
     OUTSTANDING("Outstanding");

@@ -36,7 +36,6 @@ public class TeamDaoImpl implements TeamDao {
 
         final Team manchesterUnited = new Team(3, "Manchester United", "Barclays Premier League",
                 Rating.GOOD, Lists.<Player>newArrayList());
-
         return ImmutableMap.of(
                 realMadrid.getId(), realMadrid,
                 realMadridCastilla.getId(), realMadridCastilla,
@@ -56,6 +55,11 @@ public class TeamDaoImpl implements TeamDao {
 
     @Override
     public void addTeam(Team team) {
+        team.setId(teams.size() + 1);
+        pushTeam(team);
+    }
+
+    private void pushTeam(Team team) {
         teams.put(
                 team.getId(), team
         );
@@ -63,7 +67,7 @@ public class TeamDaoImpl implements TeamDao {
 
     @Override
     public void updateTeam(Team team) {
-        addTeam(team);
+        pushTeam(team);
     }
 
     @Override

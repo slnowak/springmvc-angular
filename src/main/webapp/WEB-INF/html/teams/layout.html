@@ -3,23 +3,42 @@
     <p>Currently there {{teams.length}} teams in system.</p>
     <br />
 
-    <label>
-        <p>Filter by name: </p>
-        <input ng-model="filter.name"/>
-    </label>
-    <br/>
-    <label>
-        <p>Filter by division: </p>
-        <input ng-model="filter.division"/>
-    </label>
+    <div>
+        <label>
+            <p>Filter by name: </p>
+            <input ng-model="filter.name"/>
+        </label>
+        <br/>
+        <label>
+            <p>Filter by division: </p>
+            <input ng-model="filter.division"/>
+        </label>
 
-    <br/> <br/>
+        <br/> <br/>
 
-    <ul>
-        <li ng-repeat="team in teams | filter:filter | orderBy:team.name" >
-            {{ team.name }} - {{ team.division }} - {{ team.rating }}
-        </li>
-    </ul>
-    {{blah}}
+        <ul>
+            <li ng-repeat="team in teams | filter:filter | orderBy:team.name" >
+                {{ team.id }} - {{ team.name }} - {{ team.division }} - {{ team.rating }}
+            </li>
+        </ul>
+    </div>
+
+    <br/><br/>
+
+    <div>
+        <form ng-submit="addTeam(team)">
+            <input placeholder="Enter name" type="text" ng-model="team.name" required min="1">
+            <input placeholder="Enter division" type="text" ng-model="team.division" required min="1">
+            <select ng-model="team.rating" required>
+                <option value="WEAK">Week</option>
+                <option value="AVERAGE">Average</option>
+                <option value="GOOD">Good</option>
+                <option value="OUTSTANDING">Outstanding</option>
+            </select>
+
+            <button type="submit">Add team</button>
+        </form>
+
+    </div>
 
 </div>

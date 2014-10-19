@@ -11,6 +11,16 @@ var teamController = function($scope, $http) {
         })
     };
 
+    $scope.addTeam = function(team) {
+
+        $http.post('teams', team).success(function(request) {
+            $scope.viewAllTeams()
+        }).error(function(request, code) {
+            alert(code)
+        })
+
+    };
+
     $scope.viewAllTeams();
 
 };
