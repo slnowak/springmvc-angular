@@ -1,43 +1,69 @@
 <div>
 
-    <p>Currently there {{teams.length}} teams in system.</p>
-    <br />
-
     <div>
-        <label>
-            <p>Filter by name: </p>
-            <input ng-model="filter.name"/>
-        </label>
-        <br/>
-        <label>
-            <p>Filter by division: </p>
-            <input ng-model="filter.division"/>
-        </label>
-
-        <br/> <br/>
-
-        <ul>
-            <li ng-repeat="team in teams | filter:filter | orderBy:team.name" >
-                {{ team.id }} - {{ team.name }} - {{ team.division }} - {{ team.rating }}
-            </li>
-        </ul>
-    </div>
-
-    <br/><br/>
-
-    <div>
-        <form ng-submit="addTeam(team)">
-            <input placeholder="Enter name" type="text" ng-model="team.name" required min="1">
-            <input placeholder="Enter division" type="text" ng-model="team.division" required min="1">
-            <select ng-model="team.rating" required>
-                <option value="WEAK">Week</option>
+        <form>
+            <input placeholder="Enter name" type="text" ng-model="formTeam.name" required min="1">
+            <input placeholder="Enter division" type="text" ng-model="formTeam.division" required min="1">
+            <select ng-model="formTeam.rating" required>
+                <option value="WEAK">Weak</option>
                 <option value="AVERAGE">Average</option>
                 <option value="GOOD">Good</option>
                 <option value="OUTSTANDING">Outstanding</option>
             </select>
 
-            <button type="submit">Add team</button>
+            <button ng-click="addTeam(formTeam)" ng-hide="editionMode" type="submit">Add team</button>
+            <button ng-click="updateTeam(formTeam)" ng-show="editionMode" type="submit">Save team</button>
         </form>
+
+    </div>
+
+    <br/><br/>
+
+    <div ng-hide="teams.length == 0">
+        <div>
+            <p>Filter by:</p>
+        </div>
+
+        <div>
+            <label>
+                <input ng-model="filter.name" placeholder="Name"/>
+            </label>
+            <br/>
+            <label>
+                <input ng-model="filter.division" placeholder="Division"/>
+            </label>
+
+            <br/> <br/>
+        </div>
+
+        <div>
+            <table border="1">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Division</th>
+                    <th>Rating</th>
+                    <th></th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr ng-repeat="team in teams | filter:filter | orderBy:team.name">
+                    <td>{{ team.id }}</td>
+                    <td>{{ team.name }}</td>
+                    <td>{{ team.division }}</td>
+                    <td>{{ team.rating }}</td>
+                    <td>
+                        <button ng-click="selectForEdition(team)">Edit</button>
+                        <button ng-click="deleteTeam(team)">Delete</button>
+                    </td>
+                </tr>
+                </tbody>
+
+            </table>
+        </div>
+
 
     </div>
 

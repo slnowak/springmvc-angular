@@ -55,8 +55,17 @@ public class TeamDaoImpl implements TeamDao {
 
     @Override
     public void addTeam(Team team) {
-        team.setId(teams.size() + 1);
+        team.setId(findId());
         pushTeam(team);
+    }
+
+    private Integer findId() {
+        Integer nextId = 1;
+        while (teams.containsKey(nextId)) {
+            nextId++;
+        }
+
+        return nextId;
     }
 
     private void pushTeam(Team team) {
